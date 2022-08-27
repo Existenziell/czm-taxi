@@ -26,6 +26,8 @@ const Map = ({ pickupCoordinates, dropoffCoordinates }) => {
     return (
         <>
             <Head>
+                <title>CZMTaxi</title>
+                <meta name='description' content='CZMTaxi | Taxi for Cozumel' />
                 <link href='https://api.mapbox.com/mapbox-gl-js/v1.12.0/mapbox-gl.css' rel='stylesheet' />
             </Head>
             <div id="map" style={{ flex: 1, height: '50vh' }} />
