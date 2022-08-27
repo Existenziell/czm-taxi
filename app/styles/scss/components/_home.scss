@@ -1,0 +1,96 @@
+.homeContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    & .homeMap {
+        flex: 1;
+    }
+
+    & .homeBody {
+        flex: 1;
+        padding:  0 15px;
+
+        & .homeHeader {
+            display: flex;
+            width: 100%;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 30px;
+            margin-top: 30px;
+
+            & .homeLogo {
+                width: 5rem;
+                height: auto;
+            }
+
+            & .homeProfileContainer {
+                display: flex;
+                align-items: center;
+
+                & .homeProfileName {
+                    padding-right: 15px;
+                    font-family: 'Nunito', sans-serif;
+                    font-weight: 700;
+                }
+
+                & .homeProfilePicContainer {
+                    width: 3rem;
+                    height: 3rem;
+                    border-radius: 50%;
+                    border: 1px solid gray;
+                    overflow: hidden;
+
+                    & .homeProfilePic {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+                }
+            }
+        }
+
+        & .homeActionBtnsContainer {
+            width: 100%;
+            display: grid;
+            row-gap: 1rem;
+            margin-bottom: 2rem;
+            grid-template-columns: repeat(3, 1fr);
+
+            & .homeSingleActionBtnContainer {
+                height: 100%;
+                margin: 0 10px;
+                display: flex;
+                padding: 10px;
+                background-color: $primary-color;
+                border-radius: 5px;
+                flex-direction: column;
+                align-items: center;
+                @include transition-ease;
+
+                &:hover {
+                    // transform: scale(1.01);
+                    // box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+                    box-shadow: none;
+                }
+
+                & .homeActionBtnImg {
+                    width: 65%;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    & .homeWhereToBtn {
+        width: 100%;
+        text-align: left;
+        font-weight: bold;
+        font-size: 1.1rem;
+    }
+}
