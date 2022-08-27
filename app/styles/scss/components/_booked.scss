@@ -1,17 +1,18 @@
-.bookedContainer {
-    & h1 {
-        font-family: 'Nunito', sans-serif;
-        text-align: center;
-    }
-    & p {
-        font-family: 'Nunito', sans-serif;
-        text-align: center;
-    }
+.bookedContainer h1 {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
 
-    & .bookedHomeBtnContainer {
-        width: 100%;
-        margin-top: 2rem;
-        @include flex-center;
-        flex-direction: column;
-    }
+.bookedContainer p {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+}
+
+.bookedContainer .bookedHomeBtnContainer {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
