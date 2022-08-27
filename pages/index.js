@@ -3,7 +3,7 @@ import HomeBody from '../app/components/home/HomeBody'
 
 export default function Home() {
     return (
-        <div className="homeContainer">
+        <div className="homeContainer bg-brand">
             <div className="homeMap sharedMap">
                 <Map />
             </div>

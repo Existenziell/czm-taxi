@@ -34,9 +34,5 @@ yarn-error.log*
 # vercel
 .vercel
 
-# styling
-*.css
-*.css.map
-
 # vscode
 .vscode

@@ -4,7 +4,7 @@
 
 - Nextjs
 - Firebase
-- SASS
+- TailwindCSS
 - Mapbox Api
 - Lottie animations
 

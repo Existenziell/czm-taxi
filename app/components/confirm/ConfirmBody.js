@@ -1,4 +1,3 @@
-import Lottie from 'react-lottie'
 import Link from 'next/link'
 import rides from '../../assets/files/carList'
 import { getDirections } from '../../helpers/Helpers'
@@ -24,9 +23,7 @@ const ConfirmBody = ({ pickupCoordinates, dropoffCoordinates }) => {
 
     if (isLoading) {
         return (
-            <div className="confirmBody">
-                <Lottie options={{ animationData: require('../../assets/lottie/loading.json') }} />
-            </div>
+            <div className="centered">Loading...</div>
         )
     }
 
@@ -42,8 +39,6 @@ const ConfirmBody = ({ pickupCoordinates, dropoffCoordinates }) => {
         return (
             <div className="confirmBody">
                 <h2 style={{ textAlign: 'center', marginTop: 50 }}>No rides found...</h2>
-                <h2 style={{ textAlign: 'center', marginTop: 5 }}>Prefer riding this instead?</h2>
-                <Lottie width='100%' height='50%' options={{ animationData: require('../../assets/lottie/dragon.json') }} />
             </div>
         )
     }

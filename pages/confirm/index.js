@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import Map from '../../app/components/shared/Map'
-import Lottie from 'react-lottie'
 import ConfirmBody from '../../app/components/confirm/ConfirmBody'
 import useAuthentication from '../../app/auth/auth'
 import { useRouter } from 'next/dist/client/router'
@@ -30,9 +29,7 @@ const Confirm = () => {
 
     if (isloading) {
         return (
-            <div className="confirmContainer">
-                <Lottie options={{ animationData: require('../../app/assets/lottie/car-loading.json') }} />
-            </div>
+            <div className="centered">Loading...</div>
         )
     }
 

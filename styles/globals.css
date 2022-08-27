@@ -1,0 +1,411 @@
+/* --------------------------------------------------------
+Style Sheet for czm-taxi
+
+version: 0.9
+author: Christof Bauer
+email: bauer.christof@gmail.com
+----------------------------------------------------------*/
+
+:root {
+  --color-brand: #F3F3F3;
+  --color-brand-dark: #242424;
+  --color-cta: #D6A269;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  scroll-behavior: smooth;
+  font-family: 'Nunito';
+  padding: 0;
+  margin: 0;
+  background-color: #F3F3F3;
+}
+
+/* ==========================================================================
+	General
+	========================================================================== */
+
+.centered {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.btn {
+  width: fit-content;
+  height: fit-content;
+  font-family: 'Nunito', sans-serif;
+  cursor: pointer;
+  background-color: #000;
+  color: #fff;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 2rem;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  transition: all 0.3s ease-in-out;
+  box-sizing: border-box;
+}
+
+.disabled {
+  background-color: rgb(170, 170, 170);
+  color: rgb(228, 227, 227);
+  opacity: 0.5;
+}
+
+.input {
+  padding: 9px 7px;
+  font-family: 'Nunito' sans-serif;
+  font-size: .9rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #c0c0c8;
+  transition: all 0.3s ease-in-out;
+}
+
+.input:focus {
+  outline: none;
+  transform: scale(1.03);
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+
+
+/* ==========================================================================
+	Home
+	========================================================================== */
+
+  .homeContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.homeContainer .homeMap {
+    flex: 1;
+}
+.homeContainer .homeBody {
+    flex: 1;
+    padding: 0 15px;
+}
+.homeContainer .homeBody .homeHeader {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.homeContainer .homeBody .homeHeader .homeLogo {
+    width: 5rem;
+    height: auto;
+}
+.homeContainer .homeBody .homeHeader .homeProfileContainer {
+    display: flex;
+    align-items: center;
+}
+.homeContainer .homeBody .homeHeader .homeProfileContainer .homeProfileName {
+    padding-right: 15px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+}
+.homeContainer .homeBody .homeHeader .homeProfileContainer .homeProfilePicContainer {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 50%;
+    border: 1px solid gray;
+    overflow: hidden;
+}
+.homeContainer .homeBody .homeHeader .homeProfileContainer .homeProfilePicContainer .homeProfilePic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.homeContainer .homeBody .homeHeader .homeProfileContainer .homeProfilePicContainer:hover {
+    cursor: pointer;
+}
+.homeContainer .homeBody .homeActionBtnsContainer {
+    width: 100%;
+    display: grid;
+    row-gap: 1rem;
+    margin-bottom: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+}
+.homeContainer .homeBody .homeActionBtnsContainer .homeSingleActionBtnContainer {
+    height: 100%;
+    margin: 0 10px;
+    display: flex;
+    padding: 10px;
+    background-color: #c0c0c8;
+    border-radius: 5px;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.3s ease-in-out;
+}
+.homeContainer .homeBody .homeActionBtnsContainer .homeSingleActionBtnContainer:hover {
+    box-shadow: none;
+}
+.homeContainer .homeBody .homeActionBtnsContainer .homeSingleActionBtnContainer .homeActionBtnImg {
+    width: 65%;
+    height: auto;
+}
+.homeContainer .homeWhereToBtn {
+    width: 100%;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+
+/* ==========================================================================
+	Map
+	========================================================================== */
+
+.sharedMap {
+  overflow: hidden;
+  display: flex;
+}
+
+
+
+/* ==========================================================================
+	Confirm
+	========================================================================== */
+
+.confirmContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Nunito', 'sans-serif';
+}
+.confirmContainer .confirmBackBtnContainer .confirmBackBtn {
+    z-index: 100;
+    background-color: #fff;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+.confirmContainer .confirmMap {
+    flex: 1;
+}
+.confirmContainer .confirmBody {
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+}
+.confirmContainer .confirmBody .confirmHeaderContainer {
+    flex: 1;
+    padding: 5px 0;
+    font-size: 1.1rem;
+    text-align: center;
+    border-bottom: 1px solid #c0c0c8;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer {
+    flex-grow: 20;
+    flex-basis: 0;
+    overflow: auto;
+    padding: 10px;
+    padding-bottom: 60px;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer::-webkit-scrollbar {
+    display: none;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer .confirmRideContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #c0c0c8;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transition: all 0.3s ease-in-out;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer .confirmRideContainer .confirmRideProfileContainer {
+    display: flex;
+    flex-direction: row;
+    column-gap: 1rem;
+    align-items: center;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer .confirmRideContainer .confirmRideProfileContainer .confirmRideImg {
+    width: 4.5rem;
+    height: auto;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer .confirmRideContainer .confirmRideProfileContainer .confirmRideArrivalTime {
+    color: #276ef1;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer .confirmRideContainer:hover {
+    cursor: pointer;
+}
+.confirmContainer .confirmBody .confirmRideSelectionContainer .selected {
+    box-shadow: rgba(50, 50, 93, 0.25) 10px 15px 15px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    transform: scale(1.02);
+    background-color: #a5a5b0;
+}
+.confirmContainer .confirmBody .confirmConfirmBtn {
+    width: 90%;
+    position: absolute;
+    bottom: 1rem;
+    font-size: large;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* ==========================================================================
+	Search
+	========================================================================== */
+
+  .searchMajorContainer {
+    width: 100%;
+    height: 100vh;
+    background-color: #c0c0c8;
+}
+.searchMinorContainer {
+    padding: 10px;
+    width: 100%;
+    background-color: #fff;
+    border-radius: 0 0 25px 25px;
+    font-family: 'Nunito', sans-serif;
+}
+.searchMinorContainer .searchBackBtnContainer {
+    width: 100%;
+    height: 3.5rem;
+}
+.searchMinorContainer .searchBackBtnContainer .searchBackBtn {
+    width: 3rem;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+    cursor: pointer;
+    background-color: #fff;
+    display: flex;
+}
+.searchMinorContainer .searchBackBtnContainer .searchBackBtn img {
+    width: 100%;
+    height: auto;
+}
+.searchMinorContainer .searchFormContainer {
+    display: flex;
+    align-items: center;
+}
+.searchMinorContainer .searchFormContainer .searchFormImgContainer {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+}
+.searchMinorContainer .searchFormContainer .searchFormInputContainer {
+    display: flex;
+    flex: 10;
+    flex-direction: column;
+}
+.searchMinorContainer .searchFormContainer .searchFormAddBtnMajorContainer {
+    flex: 2;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchMinorContainer .searchFormContainer .searchFormAddBtnMajorContainer .searchFormAddBtnMinorContainer {
+    background-color: #c0c0c8;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+}
+.searchMinorContainer .searchFormContainer .searchFormAddBtnMajorContainer .searchFormAddBtnMinorContainer img {
+    width: 100%;
+    height: auto;
+}
+.searchMinorContainer .searchSavedPlacesContainer {
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+}
+.searchMinorContainer .searchSavedPlacesContainer .searchSavedPlacesImgContainer {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #c0c0c8;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 0.5rem;
+}
+.searchMinorContainer .searchSavedPlacesContainer .searchSavedPlacesImgContainer img {
+    width: 70%;
+}
+.searchMinorContainer .searchConfirmBtn {
+    font-size: larger;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+
+
+/* ==========================================================================
+	Login
+	========================================================================== */
+
+.loginContainer {
+    padding: 1.5rem;
+    font-family: 'Nunito', sans-serif;
+}
+.loginContainer .loginLogoContainer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.loginContainer .loginLogoContainer img {
+    width: 10rem;
+    margin: 0 auto;
+}
+.loginContainer h1 {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+}
+.loginContainer .loginBtnContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+
+
+/* ==========================================================================
+	Booked
+	========================================================================== */
+
+.bookedContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.bookedContainer h1, p {
+    font-family: 'Nunito', sans-serif;
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.bookedContainer .bookedHomeBtnContainer {
+    width: 100%;
+    margin-top: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
