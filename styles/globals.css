@@ -99,7 +99,7 @@ html, body {
     margin-top: 30px;
 }
 .homeContainer .homeBody .homeHeader .homeLogo {
-    width: 5rem;
+    width: 4rem;
     height: auto;
 }
 .homeContainer .homeBody .homeHeader .homeProfileContainer {
@@ -110,6 +110,7 @@ html, body {
     padding-right: 15px;
     font-family: 'Nunito', sans-serif;
     font-weight: 700;
+    margin-top: 0;
 }
 .homeContainer .homeBody .homeHeader .homeProfileContainer .homeProfilePicContainer {
     width: 3rem;
@@ -128,14 +129,13 @@ html, body {
 }
 .homeContainer .homeBody .homeActionBtnsContainer {
     width: 100%;
-    display: grid;
-    row-gap: 1rem;
+    display: flex;
     margin-bottom: 2rem;
-    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    gap: 1rem;
 }
 .homeContainer .homeBody .homeActionBtnsContainer .homeSingleActionBtnContainer {
     height: 100%;
-    margin: 0 10px;
     display: flex;
     padding: 10px;
     background-color: #c0c0c8;
@@ -143,6 +143,10 @@ html, body {
     flex-direction: column;
     align-items: center;
     transition: all 0.3s ease-in-out;
+}
+.homeSingleActionBtnContainer  h4 {
+    margin-top: 0;
+    margin-bottom: 0;    
 }
 .homeContainer .homeBody .homeActionBtnsContainer .homeSingleActionBtnContainer:hover {
     box-shadow: none;
@@ -213,12 +217,12 @@ html, body {
     text-align: center;
     border-bottom: 1px solid #c0c0c8;
 }
+.confirmHeaderContainer p {
+    margin-top: 0;
+}
 .confirmContainer .confirmBody .confirmRideSelectionContainer {
-    flex-grow: 20;
-    flex-basis: 0;
-    overflow: auto;
+    overflow-x: hidden;
     padding: 10px;
-    padding-bottom: 60px;
 }
 .confirmContainer .confirmBody .confirmRideSelectionContainer::-webkit-scrollbar {
     display: none;
@@ -256,14 +260,12 @@ html, body {
     background-color: #a5a5b0;
 }
 .confirmContainer .confirmBody .confirmConfirmBtn {
-    width: 90%;
-    position: absolute;
-    bottom: 1rem;
+    /* width: 90%; */
+    position: relative;
     font-size: large;
-    left: 0;
-    right: 0;
-    margin-left: auto;
-    margin-right: auto;
+    /* left: 0;
+    right: 0; */
+    margin: 10px auto 20px;
 }
 
 
@@ -369,12 +371,15 @@ html, body {
 }
 .loginContainer .loginLogoContainer {
     width: 100%;
+    height: 80vh;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
 }
 .loginContainer .loginLogoContainer img {
-    width: 10rem;
+    width: 8rem;
     margin: 0 auto;
 }
 .loginContainer h1 {
@@ -383,12 +388,7 @@ html, body {
     font-size: 20px;
     font-weight: normal;
 }
-.loginContainer .loginBtnContainer {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 2rem;
-}
+
 
 
 
@@ -399,6 +399,9 @@ html, body {
 .bookedContainer {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
 }
 
 .bookedContainer h1, p {

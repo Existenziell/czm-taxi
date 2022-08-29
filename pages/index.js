@@ -6,7 +6,6 @@ import actionBtns from '../lib/actionBtns'
 import { onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from '../config/firebase'
 import { useState, useEffect } from 'react'
-import { useRouter } from 'next/dist/client/router'
 import Logo from '../components/Logo'
 
 const defaultUser = {
@@ -16,7 +15,6 @@ const defaultUser = {
 
 const HomeBody = () => {
     const [user, setUser] = useState(defaultUser)
-    const router = useRouter()
 
     useEffect(() => {
         return onAuthStateChanged(auth, (user) => {
@@ -30,7 +28,6 @@ const HomeBody = () => {
             }
             else {
                 setUser(defaultUser)
-                router.push('/login')
             }
         })
     }, [])

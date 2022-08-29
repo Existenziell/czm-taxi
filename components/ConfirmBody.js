@@ -28,7 +28,7 @@ const ConfirmBody = ({ pickup, pickupCoordinates, dropoff, dropoffCoordinates })
     if (directions) {
         return (
             <div className="confirmBody">
-                <Header />
+                <div className="confirmHeaderContainer"><p>Please choose a ride</p></div>
                 <RideSelection directions={directions} pickup={pickup} dropoff={dropoff} pickupCoordinates={pickupC} dropoffCoordinates={dropoffC} />
             </div>
         )
@@ -39,14 +39,6 @@ const ConfirmBody = ({ pickup, pickupCoordinates, dropoff, dropoffCoordinates })
             </div>
         )
     }
-}
-
-const Header = () => {
-    return (
-        <div className="confirmHeaderContainer">
-            <p>Please choose a ride</p>
-        </div>
-    )
 }
 
 const RideSelection = ({ directions, pickup, dropoff, pickupCoordinates, dropoffCoordinates }) => {
@@ -75,27 +67,29 @@ const RideSelection = ({ directions, pickup, dropoff, pickupCoordinates, dropoff
     }
 
     return (
-        <div className="confirmRideSelectionContainer">
-            {
-                rides.map((ride, index) => {
-                    return (
-                        <div onClick={() => { handleClick(index) }} className={(selected === index) ? "confirmRideContainer selected" : "confirmRideContainer"} key={index}>
-                            <div className="confirmRideProfileContainer">
-                                <img className="confirmRideImg" src={ride.imgUrl} alt={ride.service} />
-                                <div>
-                                    <h3 className="confirmRideName">{ride.service}</h3>
-                                    <p className="confirmRideArrivalTime">{ride.time} min away</p>
+        <>
+            <div className="confirmRideSelectionContainer">
+                {
+                    rides.map((ride, index) => {
+                        return (
+                            <div onClick={() => { handleClick(index) }} className={(selected === index) ? "confirmRideContainer selected" : "confirmRideContainer"} key={index}>
+                                <div className="confirmRideProfileContainer">
+                                    <img className="confirmRideImg" src={ride.imgUrl} alt={ride.service} />
+                                    <div>
+                                        <h3 className="confirmRideName">{ride.service}</h3>
+                                        <p className="confirmRideArrivalTime">{ride.time} min away</p>
+                                    </div>
                                 </div>
+                                <p className="confirmRidePrice">
+                                    ${(directions.distance * ride.multiplier).toFixed(2)}
+                                </p>
                             </div>
-                            <p className="confirmRidePrice">
-                                ${(directions.distance * ride.multiplier).toFixed(2)}
-                            </p>
-                        </div>
-                    )
-                })
-            }
+                        )
+                    })
+                }
+            </div>
             <button onClick={() => handleConfirm(rides[selected])} className="confirmConfirmBtn btn">Confirm {rides[selected].service}</button>
-        </div>
+        </>
     )
 }
 
