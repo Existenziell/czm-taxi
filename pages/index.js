@@ -76,7 +76,7 @@ export default function Home() {
     const { driverFound } = useApp()
     return (
         <>
-            <div className="homeContainer bg-brand">
+            <div className="homeContainer bg-logo">
                 <div className="homeMap sharedMap">
                     <Map />
                 </div>

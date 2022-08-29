@@ -38,7 +38,6 @@ html, body {
 .btn {
   width: fit-content;
   height: fit-content;
-  font-family: 'Nunito', sans-serif;
   cursor: pointer;
   background-color: #000;
   color: #fff;
@@ -58,7 +57,6 @@ html, body {
 
 .input {
   padding: 9px 7px;
-  font-family: 'Nunito' sans-serif;
   font-size: .9rem;
   border: none;
   border-radius: 5px;
@@ -68,10 +66,13 @@ html, body {
 
 .input:focus {
   outline: none;
-  transform: scale(1.03);
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
 
+.input::placeholder { 
+    color: #555;
+    opacity: 1;
+  }
 
 /* ==========================================================================
 	Home
@@ -108,7 +109,6 @@ html, body {
 }
 .homeContainer .homeBody .homeHeader .homeProfileContainer .homeProfileName {
     padding-right: 15px;
-    font-family: 'Nunito', sans-serif;
     font-weight: 700;
     margin-top: 0;
 }
@@ -191,7 +191,6 @@ html, body {
     height: 100%;
     display: flex;
     flex-direction: column;
-    font-family: 'Nunito', 'sans-serif';
 }
 .confirmContainer .confirmBackBtnContainer .confirmBackBtn {
     z-index: 100;
@@ -250,9 +249,6 @@ html, body {
     width: 4.5rem;
     height: auto;
 }
-.confirmContainer .confirmBody .confirmRideSelectionContainer .confirmRideContainer .confirmRideProfileContainer .confirmRideArrivalTime {
-    color: #276ef1;
-}
 .confirmContainer .confirmBody .confirmRideSelectionContainer .confirmRideContainer:hover {
     cursor: pointer;
 }
@@ -262,11 +258,8 @@ html, body {
     background-color: #a5a5b0;
 }
 .confirmContainer .confirmBody .confirmConfirmBtn {
-    /* width: 90%; */
     position: relative;
     font-size: large;
-    /* left: 0;
-    right: 0; */
     margin: 10px auto 20px;
 }
 
@@ -276,7 +269,7 @@ html, body {
 	Search
 ========================================================================== */
 
-  .searchMajorContainer {
+.searchMajorContainer {
     width: 100%;
     height: 100vh;
     background-color: #c0c0c8;
@@ -286,7 +279,6 @@ html, body {
     width: 100%;
     background-color: #fff;
     border-radius: 0 0 25px 25px;
-    font-family: 'Nunito', sans-serif;
 }
 .searchMinorContainer .searchBackBtnContainer {
     width: 100%;
@@ -369,7 +361,6 @@ html, body {
 
 .loginContainer {
     padding: 1.5rem;
-    font-family: 'Nunito', sans-serif;
 }
 .loginContainer .loginLogoContainer {
     width: 100%;
@@ -383,12 +374,6 @@ html, body {
 .loginContainer .loginLogoContainer img {
     width: 8rem;
     margin: 0 auto;
-}
-.loginContainer h1 {
-    margin-top: 20px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: normal;
 }
 
 
@@ -406,7 +391,6 @@ html, body {
 }
 
 .bookedContainer h1, p {
-    font-family: 'Nunito', sans-serif;
     text-align: center;
     margin-bottom: 0;
 }

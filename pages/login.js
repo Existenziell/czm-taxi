@@ -19,8 +19,8 @@ const Login = () => {
         <div className="loginContainer">
             <div className="loginLogoContainer">
                 <Logo />
-                <h1>Please login to continue</h1>
-                <button className="btn" onClick={() => { signInWithPopup(auth, provider) }}>Sign in with Google</button>
+                <p className='mt-6'>Please login to continue</p>
+                <button className="btn mt-1" onClick={() => { signInWithPopup(auth, provider) }}>Sign in with Google</button>
             </div>
 
         </div>

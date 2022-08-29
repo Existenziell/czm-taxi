@@ -15,6 +15,7 @@ module.exports = {
         'brand': '#DBDBDB',
         'brand-dark': '#242424',
         'cta': '#D6A269',
+        'logo': '#F3F3F3',
       },
     },
   },

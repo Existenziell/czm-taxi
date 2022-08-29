@@ -77,10 +77,10 @@ const RideSelection = ({ directions, pickup, dropoff, pickupCoordinates, dropoff
                                     <img className="confirmRideImg" src={ride.imgUrl} alt={ride.service} />
                                     <div>
                                         <h3 className="confirmRideName">{ride.service}</h3>
-                                        <p className="confirmRideArrivalTime">{ride.time} min away</p>
+                                        <p className="text-logo">{ride.time} min away</p>
                                     </div>
                                 </div>
-                                <p className="confirmRidePrice">
+                                <p className="pr-4">
                                     ${(directions.distance * ride.multiplier).toFixed(2)}
                                 </p>
                             </div>
