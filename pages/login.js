@@ -1,8 +1,8 @@
 import { useRouter } from 'next/dist/client/router'
 import { signInWithPopup, onAuthStateChanged } from 'firebase/auth'
 import { useEffect } from 'react'
-import { auth, provider } from '../app/config/firebase'
-import Logo from '../app/components/Logo'
+import { auth, provider } from '../config/firebase'
+import Logo from '../components/Logo'
 
 const Login = () => {
     const router = useRouter()

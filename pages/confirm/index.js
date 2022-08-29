@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import Map from '../../app/components/shared/Map'
-import ConfirmBody from '../../app/components/confirm/ConfirmBody'
-import useAuthentication from '../../app/auth/auth'
+import Map from '../../components/Map'
+import ConfirmBody from '../../components/ConfirmBody'
+import useAuthentication from '../../lib/auth'
 import { useRouter } from 'next/dist/client/router'
-import { getCoordinates } from '../../app/helpers/Helpers'
+import { getCoordinates } from '../../lib/mapHelpers'
 import { useEffect, useState } from 'react'
 
 const Confirm = () => {

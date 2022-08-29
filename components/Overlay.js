@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react"
-import useApp from "../../context/AppContext"
+import { useState } from "react"
+import useApp from '../context/AppContext'
 
 const Overlay = () => {
-  const { driverFound, newResponse } = useApp()
+  const { driverFound } = useApp()
   const [open, setOpen] = useState(driverFound)
 
   return (

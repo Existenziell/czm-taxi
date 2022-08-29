@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/dist/client/router'
-import useAuthentication from '../../app/auth/auth'
+import useAuthentication from '../../lib/auth'
 
 const Booked = () => {
     const router = useRouter()

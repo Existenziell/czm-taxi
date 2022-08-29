@@ -1,9 +1,7 @@
-import Link from 'next/link'
-import rides from '../../assets/files/carList'
-import useApp from '../../../context/AppContext'
-import { getDirections } from '../../helpers/Helpers'
+import rides from '../lib/carList'
+import useApp from '../context/AppContext'
+import { getDirections } from '../lib/mapHelpers'
 import { useState, useEffect } from 'react'
-import { useChannel } from '../../../components/RealtimeEffect'
 import { useRouter } from 'next/dist/client/router'
 
 const ConfirmBody = ({ pickup, pickupCoordinates, dropoff, dropoffCoordinates }) => {
@@ -12,14 +10,18 @@ const ConfirmBody = ({ pickup, pickupCoordinates, dropoff, dropoffCoordinates })
     const [pickupC, setPickupC] = useState()
     const [dropoffC, setDropoffC] = useState()
 
-    useEffect(async () => {
+    useEffect(() => {
+        setCoords()
+    }, [pickupCoordinates, dropoffCoordinates])
+
+    const setCoords = async () => {
         const coordinates = `${pickupCoordinates[0]},${pickupCoordinates[1]};${dropoffCoordinates[0]},${dropoffCoordinates[1]}`
         const data = await getDirections('driving', coordinates)
         setDirections(data)
         setPickupC(`${pickupCoordinates[0]},${pickupCoordinates[1]}`)
         setDropoffC(`${dropoffCoordinates[0]},${dropoffCoordinates[1]}`)
         setIsLoading(false)
-    }, [pickupCoordinates, dropoffCoordinates])
+    }
 
     if (isLoading) return <div className="centered">Loading...</div>
 
@@ -50,7 +52,6 @@ const Header = () => {
 const RideSelection = ({ directions, pickup, dropoff, pickupCoordinates, dropoffCoordinates }) => {
     const { broadcast } = useApp()
     const [selected, setSelected] = useState(0)
-    const [receivedMessages, setMessages] = useState([])
     const router = useRouter()
 
     const handleClick = (index) => {

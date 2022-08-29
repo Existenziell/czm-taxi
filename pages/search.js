@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import useAuthentication from '../app/auth/auth'
-import SearchForm from '../app/components/search/SearchForm'
+import useAuthentication from '../lib/auth'
+import SearchForm from '../components/SearchForm'
 
 const Search = () => {
     useAuthentication()

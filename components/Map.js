@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
-import { accessToken } from '../../config/config'
-import { addMarker } from '../../helpers/Helpers'
+import { accessToken } from '../config/config'
+import { addMarker } from '../lib/mapHelpers'
 import Head from 'next/head'
 import mapboxgl from 'mapbox-gl'
 mapboxgl.accessToken = accessToken
