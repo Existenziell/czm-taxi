@@ -1,6 +1,8 @@
 {
   "name": "czm-taxi",
   "private": false,
+  "author": "Christof Bauer <bauer.christof@gmail.com> (http://christof.digital/)",
+  "version": "0.1.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
