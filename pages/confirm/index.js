@@ -40,7 +40,7 @@ const Confirm = () => {
         <div className="confirmContainer">
             <Link href="/search" passHref>
                 <div className="confirmBackBtnContainer">
-                    <button className="btn confirmBackBtn">
+                    <button className="btn confirmBackBtn" aria-label="Back">
                         <img src="https://img.icons8.com/ios-filled/50/000000/left.png" alt="back" />
                     </button>
                 </div>

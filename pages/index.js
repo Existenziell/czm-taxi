@@ -60,7 +60,7 @@ const ActionButtons = () => {
                 actionBtns.map((btn, index) => {
                     return (
                         <Link href={btn.href} key={index} passHref>
-                            <button className='btn homeSingleActionBtnContainer'>
+                            <button className='btn homeSingleActionBtnContainer' aria-label={btn.title}>
                                 <img className="homeActionBtnImg" src={btn.img} alt={btn.title} />
                                 <h4 className="homeActionBtnTitle">{btn.title}</h4>
                             </button>

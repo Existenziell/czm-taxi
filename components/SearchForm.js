@@ -37,7 +37,7 @@ const SearchForm = () => {
                 </div>
                 <h3>Saved Places</h3>
             </div>
-            <button type="submit" onClick={(eo) => { handleClick(eo) }} className={(pickup && dropoff) ? "btn searchConfirmBtn" : "btn searchConfirmBtn disabled"}>Confirm Locations</button>
+            <button type="submit" onClick={(eo) => { handleClick(eo) }} className={(pickup && dropoff) ? "btn searchConfirmBtn" : "btn searchConfirmBtn disabled"} aria-label="Send">Confirm Locations</button>
         </form>
     )
 }

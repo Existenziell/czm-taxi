@@ -88,7 +88,7 @@ const RideSelection = ({ directions, pickup, dropoff, pickupCoordinates, dropoff
                     })
                 }
             </div>
-            <button onClick={() => handleConfirm(rides[selected])} className="confirmConfirmBtn btn">Confirm {rides[selected].service}</button>
+            <button onClick={() => handleConfirm(rides[selected])} className="confirmConfirmBtn btn" aria-label="Confirm">Confirm {rides[selected].service}</button>
         </>
     )
 }

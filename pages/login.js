@@ -20,7 +20,9 @@ const Login = () => {
             <div className="loginLogoContainer">
                 <Logo />
                 <p className='mt-6'>Please login to continue</p>
-                <button className="btn mt-1" onClick={() => { signInWithPopup(auth, provider) }}>Sign in with Google</button>
+                <button className="btn mt-1" onClick={() => { signInWithPopup(auth, provider) }} aria-label="Signin">
+                    Sign in with Google
+                </button>
             </div>
 
         </div>

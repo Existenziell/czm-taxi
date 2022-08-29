@@ -11,7 +11,7 @@ const Overlay = () => {
         <h1>We found a driver for you!</h1>
         <p>Approx. arrival time at your location:</p>
         <h1>11min</h1>
-        <button onClick={() => setOpen(false)} className='btn'>Close</button>
+        <button onClick={() => setOpen(false)} className='btn' aria-label="Close">Close</button>
       </div>
       :
       ``
