@@ -15,7 +15,7 @@ export const AppProvider = ({ children }) => {
   // Listen on ably channel for new taxi request responses
   const [channel, ably] = useChannel("czmTaxi", (message) => {
     if (message.name === 'czmTaxiResponse') {
-      // console.log("new Response:", message, user);
+      // console.log("new Response:", message, user)
       setDriverFound(true)
       const history = receivedResponses.slice(-199)
       setResponses([...history, message])
