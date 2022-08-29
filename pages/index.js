@@ -23,7 +23,6 @@ const HomeBody = () => {
                     name: user.displayName,
                     // profilePic: user.photoURL,
                     profilePic: 'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'
-                    // profilePic: user.photoURL ? user.photoURL : 'https://www.pngitem.com/pimgs/m/150-1503945_transparent-user-png-default-user-image-png-png.png'
                 })
             }
             else {
