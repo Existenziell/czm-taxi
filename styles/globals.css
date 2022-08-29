@@ -415,3 +415,29 @@ html, body {
     align-items: center;
     flex-direction: column;
 }
+
+.overlay {
+    position: fixed;
+    top: 50px;
+    bottom:50px;
+    left: 50px;
+    right: 50px;
+    z-index: 10;
+    opacity: 80%;
+    color: white;
+    background-color: black;     
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+}
+
+.overlay h1 {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}
+.overlay p {
+    margin-top: 0px;
+    margin-bottom: 8px;
+}

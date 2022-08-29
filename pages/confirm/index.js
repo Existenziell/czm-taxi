@@ -8,7 +8,8 @@ import { useEffect, useState } from 'react'
 
 const Confirm = () => {
     useAuthentication()
-
+    const [pickupName, setPickupName] = useState()
+    const [dropoffName, setDropoffName] = useState()
     const [pickupCoordinates, setPickupCoordinates] = useState([])
     const [dropoffCoordinates, setDropoffCoordinates] = useState([])
     const [isloading, setIsLoading] = useState(true)
@@ -16,14 +17,16 @@ const Confirm = () => {
 
     useEffect(() => {
         const locations = router.query
+        setPickupName(locations.pickup)
+        setDropoffName(locations.dropoff)
         setLocation(locations)
     }, [router.query])
 
     const setLocation = async (locations) => {
         const pickup = await getCoordinates(locations.pickup)
-        const dropOff = await getCoordinates(locations.dropoff)
+        const dropoff = await getCoordinates(locations.dropoff)
         setPickupCoordinates(pickup)
-        setDropoffCoordinates(dropOff)
+        setDropoffCoordinates(dropoff)
         setIsLoading(false)
     }
 
@@ -45,7 +48,7 @@ const Confirm = () => {
             <div className="confirmMap sharedMap">
                 <Map pickupCoordinates={pickupCoordinates} dropoffCoordinates={dropoffCoordinates} />
             </div>
-            <ConfirmBody pickupCoordinates={pickupCoordinates} dropoffCoordinates={dropoffCoordinates} />
+            <ConfirmBody pickup={pickupName} pickupCoordinates={pickupCoordinates} dropoff={dropoffName} dropoffCoordinates={dropoffCoordinates} />
         </div>
     )
 }

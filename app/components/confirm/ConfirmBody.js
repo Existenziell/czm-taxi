@@ -1,41 +1,36 @@
 import Link from 'next/link'
 import rides from '../../assets/files/carList'
+import useApp from '../../../context/AppContext'
 import { getDirections } from '../../helpers/Helpers'
 import { useState, useEffect } from 'react'
 import { useChannel } from '../../../components/RealtimeEffect'
-import RealtimeComponent from '../../../components/RealtimeComponent'
 import { useRouter } from 'next/dist/client/router'
 
-const ConfirmBody = ({ pickupCoordinates, dropoffCoordinates }) => {
+const ConfirmBody = ({ pickup, pickupCoordinates, dropoff, dropoffCoordinates }) => {
     const [directions, setDirections] = useState({})
     const [isLoading, setIsLoading] = useState(true)
-    const [pickup, setPickup] = useState()
-    const [dropoff, setDropoff] = useState()
+    const [pickupC, setPickupC] = useState()
+    const [dropoffC, setDropoffC] = useState()
 
     useEffect(async () => {
         const coordinates = `${pickupCoordinates[0]},${pickupCoordinates[1]};${dropoffCoordinates[0]},${dropoffCoordinates[1]}`
         const data = await getDirections('driving', coordinates)
         setDirections(data)
-        setPickup(`${pickupCoordinates[0]},${pickupCoordinates[1]}`)
-        setDropoff(`${dropoffCoordinates[0]},${dropoffCoordinates[1]}`)
+        setPickupC(`${pickupCoordinates[0]},${pickupCoordinates[1]}`)
+        setDropoffC(`${dropoffCoordinates[0]},${dropoffCoordinates[1]}`)
         setIsLoading(false)
     }, [pickupCoordinates, dropoffCoordinates])
 
-    if (isLoading) {
-        return (
-            <div className="centered">Loading...</div>
-        )
-    }
+    if (isLoading) return <div className="centered">Loading...</div>
 
     if (directions) {
         return (
             <div className="confirmBody">
                 <Header />
-                <RideSelection directions={directions} pickup={pickup} dropoff={dropoff} />
+                <RideSelection directions={directions} pickup={pickup} dropoff={dropoff} pickupCoordinates={pickupC} dropoffCoordinates={dropoffC} />
             </div>
         )
-    }
-    else {
+    } else {
         return (
             <div className="confirmBody">
                 <h2 style={{ textAlign: 'center', marginTop: 50 }}>No rides found...</h2>
@@ -47,12 +42,13 @@ const ConfirmBody = ({ pickupCoordinates, dropoffCoordinates }) => {
 const Header = () => {
     return (
         <div className="confirmHeaderContainer">
-            <p>Please chose a ride</p>
+            <p>Please choose a ride</p>
         </div>
     )
 }
 
-const RideSelection = ({ directions, pickup, dropoff }) => {
+const RideSelection = ({ directions, pickup, dropoff, pickupCoordinates, dropoffCoordinates }) => {
+    const { broadcast } = useApp()
     const [selected, setSelected] = useState(0)
     const [receivedMessages, setMessages] = useState([])
     const router = useRouter()
@@ -61,15 +57,19 @@ const RideSelection = ({ directions, pickup, dropoff }) => {
         setSelected(index)
     }
 
-    const [channel, ably] = useChannel("czmTaxi", (message) => {
-        const history = receivedMessages.slice(-199)
-        setMessages([...history, message])
-    })
-
-    const broadcast = async () => {
-        const msg = `Request from ${`Leon`} | Selected: ${rides[selected].service} | Price: $${(directions.distance * rides[selected].multiplier).toFixed(2)} | Pickup: ${pickup} | Dropoff: ${dropoff}`
-        // console.log(msg, rides[selected])
-        channel.publish({ name: "czmTaxiRequest", data: msg })
+    const handleConfirm = (ride) => {
+        const payload = {
+            user: 'Leon',
+            ride: ride.service,
+            distance: directions.distance,
+            duration: directions.duration,
+            price: (directions.distance * ride.multiplier).toFixed(2),
+            pickup: pickup,
+            dropoff: dropoff,
+            pickupCoordinates: pickupCoordinates,
+            dropoffCoordinates: dropoffCoordinates,
+        }
+        broadcast("czmTaxiRequest", payload)
         router.push('/confirm/booked')
     }
 
@@ -86,12 +86,14 @@ const RideSelection = ({ directions, pickup, dropoff }) => {
                                     <p className="confirmRideArrivalTime">{ride.time} min away</p>
                                 </div>
                             </div>
-                            <p className="confirmRidePrice">{`$${(directions.distance * ride.multiplier).toFixed(2)}`}</p>
+                            <p className="confirmRidePrice">
+                                ${(directions.distance * ride.multiplier).toFixed(2)}
+                            </p>
                         </div>
                     )
                 })
             }
-            <button onClick={broadcast} className="confirmConfirmBtn btn">Confirm {rides[selected].service}</button>
+            <button onClick={() => handleConfirm(rides[selected])} className="confirmConfirmBtn btn">Confirm {rides[selected].service}</button>
         </div>
     )
 }

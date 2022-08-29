@@ -1,11 +1,12 @@
 import 'tailwindcss/tailwind.css'
 import '../styles/globals.css'
-import Head from 'next/head'
 import 'mapbox-gl/dist/mapbox-gl.css'
+import Head from 'next/head'
+import { AppProvider } from '../context/AppContext'
 
 function CZMTaxi({ Component, pageProps }) {
     return (
-        <>
+        <AppProvider>
             <Head>
                 <title>CZMTaxi</title>
                 <meta name='description' content='CZMTaxi | Taxi for Cozumel' />
@@ -14,7 +15,7 @@ function CZMTaxi({ Component, pageProps }) {
                 <link rel='stylesheet' href='https://fonts.googleapis.com/css2?family=Nunito&display=swap' />
             </Head>
             <Component {...pageProps} />
-        </>
+        </AppProvider>
     )
 }
 
